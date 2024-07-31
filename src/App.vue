@@ -1,11 +1,9 @@
 <script setup lang="ts">
+
 </script>
 
 <template>
-  <LayoutHeader/>
-  <LayoutNav/>
-  <router-view/>
-  <LayoutFooter/>
+  <RouterView/>
 </template>
 
 <style scoped>

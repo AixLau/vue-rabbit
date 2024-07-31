@@ -7,13 +7,16 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Category: typeof import('./stores/category.ts')['default']
     ElPopconfirm: typeof import('element-plus/es')['ElPopconfirm']
-    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
-    HomeHeader: typeof import('./components/HomeHeader.vue')['default']
-    LayoutFooter: typeof import('./components/LayoutFooter.vue')['default']
-    LayoutHeader: typeof import('./components/LayoutHeader.vue')['default']
-    LayoutNav: typeof import('./components/LayoutNav.vue')['default']
+    Layout: typeof import('./views/layout/index.vue')['default']
+    LayoutFixed: typeof import('./views/layout/components/LayoutFixed.vue')['default']
+    LayoutFooter: typeof import('./views/layout/components/LayoutFooter.vue')['default']
+    LayoutHeader: typeof import('./views/layout/components/LayoutHeader.vue')['default']
+    LayoutNav: typeof import('./views/layout/components/LayoutNav.vue')['default']
+    Login: typeof import('./views/login/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UseCategory: typeof import('./stores/useCategory.ts')['default']
   }
 }

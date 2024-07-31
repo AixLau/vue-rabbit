@@ -3,7 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 const routes = [
     {
         path: '/',
-        component: () => import('@/views/home/index.vue'), // 动态导入
+        component: () => import('@/views/layout/index.vue'), // 动态导入
     },
     {
         path: '/login',
