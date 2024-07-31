@@ -11,6 +11,11 @@ export default defineConfig({
             imports: [
                 'vue',
                 'vue-router',
+                {
+                    axios: [
+                        ['default', 'axios'], // import { default as axios } from 'axios'
+                    ],
+                },
                 // 你可以在这里添加更多需要自动引入的库
             ],
             resolvers: [ElementPlusResolver()],
