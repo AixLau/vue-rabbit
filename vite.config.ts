@@ -1,8 +1,10 @@
-import {defineConfig} from 'vite'
-import vue from '@vitejs/plugin-vue'
+import {defineConfig} from 'vite';
+import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import {ElementPlusResolver} from 'unplugin-vue-components/resolvers';
+import {fileURLToPath, URL} from 'node:url';
+
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
@@ -16,7 +18,6 @@ export default defineConfig({
                         ['default', 'axios'], // import { default as axios } from 'axios'
                     ],
                 },
-                // 你可以在这里添加更多需要自动引入的库
             ],
             resolvers: [ElementPlusResolver()],
             dts: 'src/auto-imports.d.ts', // 自动生成的类型声明文件路径
@@ -28,4 +29,19 @@ export default defineConfig({
             dts: 'src/components.d.ts', // 自动生成的类型声明文件路径
         }),
     ],
-})
+    resolve: {
+        alias: {
+            '@': fileURLToPath(new URL('./src', import.meta.url))
+        }
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                // 自动导入scss文件
+                additionalData: `
+          @use "@/styles/var.scss" as *;
+        `,
+            }
+        }
+    }
+});
