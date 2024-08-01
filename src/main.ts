@@ -15,3 +15,20 @@ app.use(pinia);
 app.use(router);
 
 app.mount('#app');
+
+// 定义全局指令
+app.directive('img-lazy', {
+    // el：指令绑定的那个元素
+    // binding：绑定元素的表达式值
+    mounted(el, binding) {
+        const {stop} = useIntersectionObserver(
+            el, ([{isIntersecting}]) => {
+                if (isIntersecting) {
+                    // 进入视口区域
+                    el.src = binding.value
+                    stop()
+                }
+            },
+        )
+    }
+})

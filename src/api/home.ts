@@ -5,3 +5,13 @@ export function getBannerAPI() {
         url: '/home/banner'
     })
 }
+
+export function getNewProductAPI() {
+    return httpInstance({
+        url: '/home/new'
+    })
+}
+
+export const getHotAPI = () => {
+    return httpInstance('home/hot')
+}
