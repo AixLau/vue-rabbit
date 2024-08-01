@@ -12,7 +12,7 @@ const categoryStorm = useCategoryStore()
       <!-- 导航区域 -->
       <ul class="app-header-nav ">
         <li class="home" v-for="item in categoryStorm.categoryList">
-          <RouterLink to="/">首页</RouterLink>
+          <RouterLink to="`/category/${item.name}`">{{ item.name }}</RouterLink>
         </li>
       </ul>
       <div class="right">
