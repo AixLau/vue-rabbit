@@ -7,8 +7,14 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    Category: typeof import('./stores/category.ts')['default']
+    Category: typeof import('./views/category/index.vue')['default']
     ElPopconfirm: typeof import('element-plus/es')['ElPopconfirm']
+    Home: typeof import('./views/home/index.vue')['default']
+    HomeBanner: typeof import('./views/home/components/HomeBanner.vue')['default']
+    HomeCategory: typeof import('./views/home/components/HomeCategory.vue')['default']
+    HomeHot: typeof import('./views/home/components/HomeHot.vue')['default']
+    HomeNew: typeof import('./views/home/components/HomeNew.vue')['default']
+    HomeProduct: typeof import('./views/home/components/HomeProduct.vue')['default']
     Layout: typeof import('./views/layout/index.vue')['default']
     LayoutFixed: typeof import('./views/layout/components/LayoutFixed.vue')['default']
     LayoutFooter: typeof import('./views/layout/components/LayoutFooter.vue')['default']
