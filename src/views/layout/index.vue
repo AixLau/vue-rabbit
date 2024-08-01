@@ -5,9 +5,9 @@ onMounted(() => categoryStorm.getCategory());
 </script>
 
 <template>
+  <LayoutNav/>
   <LayoutFixed/>
   <LayoutHeader/>
-  <LayoutNav/>
   <RouterView/>
   <LayoutFooter/>
 </template>
