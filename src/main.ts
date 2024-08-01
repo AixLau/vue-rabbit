@@ -3,7 +3,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from "@/router";
 import '@/styles/common.scss'
-import {imgLazy} from '@/directives/img-lazy.ts'
+import {lazyPlugin} from '@/directives'
 const app = createApp(App);
 
 // 创建 Pinia 实例
@@ -16,5 +16,5 @@ app.use(pinia);
 app.use(router);
 
 // 使用自定义图片懒加载指令
-app.use(imgLazy)
+app.use(lazyPlugin)
 app.mount('#app');

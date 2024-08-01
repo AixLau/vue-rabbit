@@ -16,7 +16,7 @@ declare module 'vue' {
     HomeCategory: typeof import('./views/home/components/HomeCategory.vue')['default']
     HomeHot: typeof import('./views/home/components/HomeHot.vue')['default']
     HomeNew: typeof import('./views/home/components/HomeNew.vue')['default']
-      HomePanel: typeof import('./views/home/components/HomePanel.vue')['default']
+    HomePanel: typeof import('./views/home/components/HomePanel.vue')['default']
     HomeProduct: typeof import('./views/home/components/HomeProduct.vue')['default']
     Layout: typeof import('./views/layout/index.vue')['default']
     LayoutFixed: typeof import('./views/layout/components/LayoutFixed.vue')['default']
@@ -26,6 +26,5 @@ declare module 'vue' {
     Login: typeof import('./views/login/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    UseCategory: typeof import('./stores/useCategory.ts')['default']
   }
 }

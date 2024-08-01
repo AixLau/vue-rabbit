@@ -41,7 +41,6 @@ declare global {
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getGoodsAPI: typeof import('./api/home')['getGoodsAPI']
   const getHotAPI: typeof import('./api/home')['getHotAPI']
-  const getNewProduct: typeof import('./api/home')['getNewProduct']
   const getNewProductAPI: typeof import('./api/home')['getNewProductAPI']
   const h: typeof import('vue')['h']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
@@ -142,7 +141,6 @@ declare global {
   const useBroadcastChannel: typeof import('@vueuse/core')['useBroadcastChannel']
   const useBrowserLocation: typeof import('@vueuse/core')['useBrowserLocation']
   const useCached: typeof import('@vueuse/core')['useCached']
-  const useCategory: typeof import('./stores/category')['useCategory']
   const useCategoryStore: typeof import('./stores/category')['useCategoryStore']
   const useClipboard: typeof import('@vueuse/core')['useClipboard']
   const useCloned: typeof import('@vueuse/core')['useCloned']
@@ -302,8 +300,8 @@ declare global {
 // for vue template auto import
 import {UnwrapRef} from 'vue'
 declare module 'vue' {
-  interface GlobalComponents {
-  }
+    interface GlobalComponents {
+    }
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
@@ -593,8 +591,8 @@ declare module 'vue' {
   }
 }
 declare module '@vue/runtime-core' {
-  interface GlobalComponents {
-  }
+    interface GlobalComponents {
+    }
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
