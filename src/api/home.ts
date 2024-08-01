@@ -15,3 +15,7 @@ export function getNewProductAPI() {
 export const getHotAPI = () => {
     return httpInstance('home/hot')
 }
+
+export const getGoodsAPI = () => {
+    return httpInstance('/home/goods')
+}
