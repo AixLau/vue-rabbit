@@ -23,7 +23,7 @@ export default defineConfig({
             ],
             resolvers: [ElementPlusResolver()],
             dts: 'src/auto-imports.d.ts', // 自动生成的类型声明文件路径
-            dirs: ['src/stores'], // 自动导入 stores 目录中的所有 store
+            dirs: ['src/stores', 'src/api'], // 自动导入 stores 目录中的所有 store
             vueTemplate: true, // 允许在模板中使用自动导入
         }),
         Components({

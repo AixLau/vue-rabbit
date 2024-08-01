@@ -8,6 +8,8 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Category: typeof import('./views/category/index.vue')['default']
+    ElCarousel: typeof import('element-plus/es')['ElCarousel']
+    ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElPopconfirm: typeof import('element-plus/es')['ElPopconfirm']
     Home: typeof import('./views/home/index.vue')['default']
     HomeBanner: typeof import('./views/home/components/HomeBanner.vue')['default']
