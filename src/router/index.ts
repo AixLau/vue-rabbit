@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import {createRouter, createWebHashHistory} from 'vue-router';
 
 const routes = [
     {
@@ -12,6 +12,10 @@ const routes = [
             {
                 path: 'category/:id',
                 component: () => import('@/views/category/index.vue')
+            },
+            {
+                path: 'category/sub/:id',
+                component: () => import('@/views/sub-category/index.vue')
             }
         ]
     },
@@ -24,6 +28,9 @@ const routes = [
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),
     routes,
+    scrollBehavior() {
+        return {top: 0}
+    }
 });
 
 export default router;

@@ -34,16 +34,19 @@ declare global {
   const eagerComputed: typeof import('@vueuse/core')['eagerComputed']
   const effectScope: typeof import('vue')['effectScope']
   const extendRef: typeof import('@vueuse/core')['extendRef']
+  const get: typeof import('./api/sub-category')['get']
   const getActivePinia: typeof import('pinia')['getActivePinia']
   const getBannerAPI: typeof import('./api/home')['getBannerAPI']
   const getCategoryAPI: typeof import('./api/layout')['getCategoryAPI']
+  const getCategoryFilterAPI: typeof import('./api/sub-category')['getCategoryFilterAPI']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getGoodsAPI: typeof import('./api/home')['getGoodsAPI']
   const getHotAPI: typeof import('./api/home')['getHotAPI']
   const getNewProductAPI: typeof import('./api/home')['getNewProductAPI']
-    const getToCategoryAPI: typeof import('./api/category')['getToCategoryAPI']
-    const getTopCategoryAPI: typeof import('./api/category')['getTopCategoryAPI']
+  const getSubCategoryAPI: typeof import('./api/sub-category')['getSubCategoryAPI']
+  const getToCategoryAPI: typeof import('./api/category')['getToCategoryAPI']
+  const getTopCategoryAPI: typeof import('./api/category')['getTopCategoryAPI']
   const h: typeof import('vue')['h']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
@@ -302,8 +305,8 @@ declare global {
 // for vue template auto import
 import {UnwrapRef} from 'vue'
 declare module 'vue' {
-    interface GlobalComponents {
-    }
+  interface GlobalComponents {
+  }
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
@@ -337,12 +340,14 @@ declare module 'vue' {
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
     readonly getBannerAPI: UnwrapRef<typeof import('./api/home')['getBannerAPI']>
     readonly getCategoryAPI: UnwrapRef<typeof import('./api/layout')['getCategoryAPI']>
+    readonly getCategoryFilterAPI: UnwrapRef<typeof import('./api/sub-category')['getCategoryFilterAPI']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getGoodsAPI: UnwrapRef<typeof import('./api/home')['getGoodsAPI']>
     readonly getHotAPI: UnwrapRef<typeof import('./api/home')['getHotAPI']>
     readonly getNewProductAPI: UnwrapRef<typeof import('./api/home')['getNewProductAPI']>
-      readonly getTopCategoryAPI: UnwrapRef<typeof import('./api/category')['getTopCategoryAPI']>
+    readonly getSubCategoryAPI: UnwrapRef<typeof import('./api/sub-category')['getSubCategoryAPI']>
+    readonly getTopCategoryAPI: UnwrapRef<typeof import('./api/category')['getTopCategoryAPI']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -594,8 +599,8 @@ declare module 'vue' {
   }
 }
 declare module '@vue/runtime-core' {
-    interface GlobalComponents {
-    }
+  interface GlobalComponents {
+  }
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
@@ -629,12 +634,14 @@ declare module '@vue/runtime-core' {
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
     readonly getBannerAPI: UnwrapRef<typeof import('./api/home')['getBannerAPI']>
     readonly getCategoryAPI: UnwrapRef<typeof import('./api/layout')['getCategoryAPI']>
+    readonly getCategoryFilterAPI: UnwrapRef<typeof import('./api/sub-category')['getCategoryFilterAPI']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getGoodsAPI: UnwrapRef<typeof import('./api/home')['getGoodsAPI']>
     readonly getHotAPI: UnwrapRef<typeof import('./api/home')['getHotAPI']>
     readonly getNewProductAPI: UnwrapRef<typeof import('./api/home')['getNewProductAPI']>
-      readonly getTopCategoryAPI: UnwrapRef<typeof import('./api/category')['getTopCategoryAPI']>
+    readonly getSubCategoryAPI: UnwrapRef<typeof import('./api/sub-category')['getSubCategoryAPI']>
+    readonly getTopCategoryAPI: UnwrapRef<typeof import('./api/category')['getTopCategoryAPI']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>

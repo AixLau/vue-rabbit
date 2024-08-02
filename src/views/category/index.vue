@@ -1,13 +1,17 @@
 <script setup lang="ts">
 const topCategory = ref([])
 const route = useRoute()
-const getTopCategory = async () => {
-  const res = await getTopCategoryAPI(route.params.id)
+const getTopCategory = async (id = route.params.id) => {
+  const res = await getTopCategoryAPI(id)
   topCategory.value = res.result
 }
+
 getTopCategory()
-watch(() => route.params.id, () => {
-  getTopCategory()
+// watch(() => route.params.id, () => {
+//   getTopCategory()
+// })
+onBeforeRouteUpdate((to) => {
+  getTopCategory(to.params.id)
 })
 
 const bannerList = ref([])
@@ -39,7 +43,7 @@ getBannerList()
         <h3>全部分类</h3>
         <ul>
           <li v-for="i in topCategory.children" :key="i.id">
-            <RouterLink to="/">
+            <RouterLink :to="`/category/sub/${i.id}`">
               <img :src="i.picture"/>
               <p>{{ i.name }}</p>
             </RouterLink>

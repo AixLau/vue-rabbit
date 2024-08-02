@@ -13,6 +13,8 @@ declare module 'vue' {
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElPopconfirm: typeof import('element-plus/es')['ElPopconfirm']
+    ElTabPane: typeof import('element-plus/es')['ElTabPane']
+    ElTabs: typeof import('element-plus/es')['ElTabs']
     GoodsItem: typeof import('./views/home/components/GoodsItem.vue')['default']
     Home: typeof import('./views/home/index.vue')['default']
     HomeBanner: typeof import('./views/home/components/HomeBanner.vue')['default']
@@ -29,5 +31,10 @@ declare module 'vue' {
     Login: typeof import('./views/login/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SubCategory: typeof import('./views/sub-category/index.vue')['default']
+  }
+
+  export interface ComponentCustomProperties {
+    vInfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
   }
 }
