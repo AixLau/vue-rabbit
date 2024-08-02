@@ -10,7 +10,7 @@ const categoryStorm = useCategoryStore();
       </h1>
       <ul class="app-header-nav">
         <li class="home" v-for="item in categoryStorm.categoryList" :key="item.id">
-          <RouterLink :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
+          <RouterLink active-class="active" :to="`/category/${item.id}`">{{ item.name }}</RouterLink>
         </li>
 
       </ul>
