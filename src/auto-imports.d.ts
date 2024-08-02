@@ -42,6 +42,8 @@ declare global {
   const getGoodsAPI: typeof import('./api/home')['getGoodsAPI']
   const getHotAPI: typeof import('./api/home')['getHotAPI']
   const getNewProductAPI: typeof import('./api/home')['getNewProductAPI']
+    const getToCategoryAPI: typeof import('./api/category')['getToCategoryAPI']
+    const getTopCategoryAPI: typeof import('./api/category')['getTopCategoryAPI']
   const h: typeof import('vue')['h']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
@@ -340,6 +342,7 @@ declare module 'vue' {
     readonly getGoodsAPI: UnwrapRef<typeof import('./api/home')['getGoodsAPI']>
     readonly getHotAPI: UnwrapRef<typeof import('./api/home')['getHotAPI']>
     readonly getNewProductAPI: UnwrapRef<typeof import('./api/home')['getNewProductAPI']>
+      readonly getTopCategoryAPI: UnwrapRef<typeof import('./api/category')['getTopCategoryAPI']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -631,6 +634,7 @@ declare module '@vue/runtime-core' {
     readonly getGoodsAPI: UnwrapRef<typeof import('./api/home')['getGoodsAPI']>
     readonly getHotAPI: UnwrapRef<typeof import('./api/home')['getHotAPI']>
     readonly getNewProductAPI: UnwrapRef<typeof import('./api/home')['getNewProductAPI']>
+      readonly getTopCategoryAPI: UnwrapRef<typeof import('./api/category')['getTopCategoryAPI']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
