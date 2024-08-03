@@ -5,6 +5,9 @@ const getGoods = async () => {
   const res = await getDetail(route.params.id)
   goods.value = res.result
 }
+const skuChange = (sku) => {
+  console.log(sku)
+}
 getGoods()
 </script>
 
@@ -76,7 +79,7 @@ getGoods()
                 </dl>
               </div>
               <!-- sku组件 -->
-
+              <XtxSku :goods="goods" @change="skuChange"/>
               <!-- 数据组件 -->
 
               <!-- 按钮组件 -->
