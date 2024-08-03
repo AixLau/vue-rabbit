@@ -9,7 +9,14 @@ const httpInstance = axios.create({
 
 // 请求拦截器
 httpInstance.interceptors.request.use(
-    config => config,
+    config => {
+        const userStore = useUserStore()
+        const token = userStore.userInfo.token
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`
+        }
+        return config
+    },
     error => Promise.reject(error)
 );
 // 响应拦截器
