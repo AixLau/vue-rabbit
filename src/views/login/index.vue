@@ -2,6 +2,7 @@
 import {ElMessage} from "element-plus";
 import 'element-plus/theme-chalk/el-message.css'
 
+const userStore = useUserStore()
 const router = useRouter()
 const form = ref({account: 'xiaotuxian001', password: '123456', agree: true})
 const validateAgree = (rule, value, callback) => {
@@ -22,7 +23,7 @@ const doLogin = () => {
   const {account, password} = form.value
   formRef.value.validate(async (valid) => {
     if (valid) {
-      const res = await loginAPI({account, password})
+      await userStore.getUserInfo({account, password})
       ElMessage({type: 'success', message: '登录成功'})
       await router.replace({path: '/'})
     }

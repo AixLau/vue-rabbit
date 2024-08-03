@@ -4,11 +4,12 @@ import App from './App.vue'
 import router from "@/router";
 import '@/styles/common.scss'
 import {lazyPlugin} from '@/directives'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 const app = createApp(App);
 
 // 创建 Pinia 实例
-const pinia = createPinia();
-
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
 // 使用 Pinia
 app.use(pinia);
 
