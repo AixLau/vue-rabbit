@@ -26,6 +26,7 @@ declare module 'vue' {
     HomeNew: typeof import('./views/home/components/HomeNew.vue')['default']
     HomePanel: typeof import('./views/home/components/HomePanel.vue')['default']
     HomeProduct: typeof import('./views/home/components/HomeProduct.vue')['default']
+    ImageView: typeof import('./components/image-view/index.vue')['default']
     Layout: typeof import('./views/layout/index.vue')['default']
     LayoutFixed: typeof import('./views/layout/components/LayoutFixed.vue')['default']
     LayoutFooter: typeof import('./views/layout/components/LayoutFooter.vue')['default']
