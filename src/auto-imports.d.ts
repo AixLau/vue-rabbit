@@ -41,6 +41,7 @@ declare global {
   const getCategoryFilterAPI: typeof import('./api/sub-category')['getCategoryFilterAPI']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
+  const getDetail: typeof import('./api/detail')['getDetail']
   const getGoodsAPI: typeof import('./api/home')['getGoodsAPI']
   const getHotAPI: typeof import('./api/home')['getHotAPI']
   const getNewProductAPI: typeof import('./api/home')['getNewProductAPI']
@@ -343,6 +344,7 @@ declare module 'vue' {
     readonly getCategoryFilterAPI: UnwrapRef<typeof import('./api/sub-category')['getCategoryFilterAPI']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly getDetail: UnwrapRef<typeof import('./api/detail')['getDetail']>
     readonly getGoodsAPI: UnwrapRef<typeof import('./api/home')['getGoodsAPI']>
     readonly getHotAPI: UnwrapRef<typeof import('./api/home')['getHotAPI']>
     readonly getNewProductAPI: UnwrapRef<typeof import('./api/home')['getNewProductAPI']>
@@ -637,6 +639,7 @@ declare module '@vue/runtime-core' {
     readonly getCategoryFilterAPI: UnwrapRef<typeof import('./api/sub-category')['getCategoryFilterAPI']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly getDetail: UnwrapRef<typeof import('./api/detail')['getDetail']>
     readonly getGoodsAPI: UnwrapRef<typeof import('./api/home')['getGoodsAPI']>
     readonly getHotAPI: UnwrapRef<typeof import('./api/home')['getHotAPI']>
     readonly getNewProductAPI: UnwrapRef<typeof import('./api/home')['getNewProductAPI']>
