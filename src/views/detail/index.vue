@@ -110,7 +110,8 @@ getGoods()
             </div>
             <!-- 24热榜+专题推荐 -->
             <div class="goods-aside">
-
+              <DetailHot title="24小时热榜" :hot-type="1"/>
+              <DetailHot title="周日榜单" :hot-type="2"/>
             </div>
           </div>
         </div>

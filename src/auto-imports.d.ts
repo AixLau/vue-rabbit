@@ -44,6 +44,7 @@ declare global {
   const getDetail: typeof import('./api/detail')['getDetail']
   const getGoodsAPI: typeof import('./api/home')['getGoodsAPI']
   const getHotAPI: typeof import('./api/home')['getHotAPI']
+  const getHotGoodsAPI: typeof import('./api/detail')['getHotGoodsAPI']
   const getNewProductAPI: typeof import('./api/home')['getNewProductAPI']
   const getSubCategoryAPI: typeof import('./api/sub-category')['getSubCategoryAPI']
   const getToCategoryAPI: typeof import('./api/category')['getToCategoryAPI']
@@ -347,6 +348,7 @@ declare module 'vue' {
     readonly getDetail: UnwrapRef<typeof import('./api/detail')['getDetail']>
     readonly getGoodsAPI: UnwrapRef<typeof import('./api/home')['getGoodsAPI']>
     readonly getHotAPI: UnwrapRef<typeof import('./api/home')['getHotAPI']>
+    readonly getHotGoodsAPI: UnwrapRef<typeof import('./api/detail')['getHotGoodsAPI']>
     readonly getNewProductAPI: UnwrapRef<typeof import('./api/home')['getNewProductAPI']>
     readonly getSubCategoryAPI: UnwrapRef<typeof import('./api/sub-category')['getSubCategoryAPI']>
     readonly getTopCategoryAPI: UnwrapRef<typeof import('./api/category')['getTopCategoryAPI']>
@@ -642,6 +644,7 @@ declare module '@vue/runtime-core' {
     readonly getDetail: UnwrapRef<typeof import('./api/detail')['getDetail']>
     readonly getGoodsAPI: UnwrapRef<typeof import('./api/home')['getGoodsAPI']>
     readonly getHotAPI: UnwrapRef<typeof import('./api/home')['getHotAPI']>
+    readonly getHotGoodsAPI: UnwrapRef<typeof import('./api/detail')['getHotGoodsAPI']>
     readonly getNewProductAPI: UnwrapRef<typeof import('./api/home')['getNewProductAPI']>
     readonly getSubCategoryAPI: UnwrapRef<typeof import('./api/sub-category')['getSubCategoryAPI']>
     readonly getTopCategoryAPI: UnwrapRef<typeof import('./api/category')['getTopCategoryAPI']>

@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Category: typeof import('./views/category/index.vue')['default']
     Detail: typeof import('./views/detail/index.vue')['default']
+    DetailHot: typeof import('./views/detail/components/DetailHot.vue')['default']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
     ElButton: typeof import('element-plus/es')['ElButton']
