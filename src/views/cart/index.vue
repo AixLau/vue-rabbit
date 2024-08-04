@@ -28,7 +28,7 @@ const cartList = cartStore.cartList
             </td>
             <td>
               <div class="goods">
-                <RouterLink to="/"><img :src="i.mainPictures[0]" alt=""/></RouterLink>
+                <RouterLink to="/"><img :src="i.picture" alt=""/></RouterLink>
                 <div>
                   <p class="name ellipsis">
                     {{ i.name }}
@@ -73,7 +73,7 @@ const cartList = cartStore.cartList
       <div class="action">
         <div class="batch">
           共 {{ cartList.length }} 件商品，已选择 {{ cartStore.selectedQuantity }} 件，商品合计：
-          <span class="red">¥ {{ cartStore.selectedPrice }} </span>
+          <span class="red">¥ {{ cartStore.selectedPrice.toFixed(2) }} </span>
         </div>
         <div class="total">
           <el-button size="large" type="primary">下单结算</el-button>

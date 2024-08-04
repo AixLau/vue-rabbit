@@ -7,7 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-      Cart: typeof import('./views/cart/index.vue')['default']
+    Cart: typeof import('./views/cart/index.vue')['default']
     Category: typeof import('./views/category/index.vue')['default']
     Detail: typeof import('./views/detail/index.vue')['default']
     DetailHot: typeof import('./views/detail/components/DetailHot.vue')['default']
@@ -17,7 +17,7 @@ declare module 'vue' {
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
-      ElEmpty: typeof import('element-plus/es')['ElEmpty']
+    ElEmpty: typeof import('element-plus/es')['ElEmpty']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElInput: typeof import('element-plus/es')['ElInput']

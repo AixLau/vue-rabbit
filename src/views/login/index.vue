@@ -19,12 +19,14 @@ const rules = {
 
 
 const formRef = ref(null)
+const cartStore = useCartStore()
 const doLogin = () => {
   const {account, password} = form.value
   formRef.value.validate(async (valid) => {
     if (valid) {
       await userStore.getUserInfo({account, password})
       ElMessage({type: 'success', message: '登录成功'})
+      await cartStore.getCart()
       await router.replace({path: '/'})
     }
 

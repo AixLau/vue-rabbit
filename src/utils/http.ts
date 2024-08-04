@@ -9,9 +9,9 @@ const httpInstance = axios.create({
 })
 
 // 请求拦截器
-const userStore = useUserStore()
 httpInstance.interceptors.request.use(
     config => {
+        const userStore = useUserStore()
         const token = userStore.userInfo.token
         if (token) {
             config.headers.Authorization = `Bearer ${token}`
@@ -24,6 +24,7 @@ httpInstance.interceptors.request.use(
 httpInstance.interceptors.response.use(
     response => response.data,
     error => {
+        const userStore = useUserStore()
         if (error.response.status === 401) {
             userStore.clearUserInfo()
             router.push('/')

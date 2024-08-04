@@ -1,14 +1,29 @@
 export const useCartStore = defineStore('cart', () => {
     const cartList = ref([]);
-    const addCart = (goods) => {
-        const item = cartList.value.find((item) => goods.skuId === item.skuId);
-        if (item) {
-            item.count += goods.count;
+    const userStore = useUserStore()
+    const isLogin = computed(() => userStore.userInfo.token)
+
+    const getCart = async () => {
+        const res = await getCartAPI()
+        cartList.value = res.result
+    }
+    const addCart = async (goods) => {
+        const {skuId, count} = goods;
+        if (isLogin.value) {
+            await insertCartAPI({skuId, count});
+            getCart()
         } else {
-            goods.selected = false
-            cartList.value.push(goods);
+            const item = cartList.value.find((item) => item.skuId === goods.skuId);
+            if (item) {
+                item.picture = item.mainPictures[0]
+                item.count += goods.count;
+            } else {
+                goods.selected = false;
+                cartList.value.push(goods);
+            }
         }
     };
+
 
     const delCart = (skuId) => {
         cartList.value = cartList.value.filter((item) => item.skuId != skuId)
@@ -48,6 +63,7 @@ export const useCartStore = defineStore('cart', () => {
         selectedPrice,
         totalQuantity,
         totalPrice,
+        getCart,
         addCart,
         delCart
     };

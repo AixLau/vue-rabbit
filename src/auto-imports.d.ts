@@ -37,6 +37,7 @@ declare global {
   const get: typeof import('./api/sub-category')['get']
   const getActivePinia: typeof import('pinia')['getActivePinia']
   const getBannerAPI: typeof import('./api/home')['getBannerAPI']
+  const getCartAPI: typeof import('./api/cart')['getCartAPI']
   const getCategoryAPI: typeof import('./api/layout')['getCategoryAPI']
   const getCategoryFilterAPI: typeof import('./api/sub-category')['getCategoryFilterAPI']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
@@ -52,12 +53,13 @@ declare global {
   const h: typeof import('vue')['h']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
+  const insertCartAPI: typeof import('./api/cart')['insertCartAPI']
   const isDefined: typeof import('@vueuse/core')['isDefined']
   const isProxy: typeof import('vue')['isProxy']
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
-    const loginAPI: typeof import('./api/user')['loginAPI']
+  const loginAPI: typeof import('./api/user')['loginAPI']
   const makeDestructurable: typeof import('@vueuse/core')['makeDestructurable']
   const mapActions: typeof import('pinia')['mapActions']
   const mapGetters: typeof import('pinia')['mapGetters']
@@ -128,7 +130,7 @@ declare global {
   const unref: typeof import('vue')['unref']
   const unrefElement: typeof import('@vueuse/core')['unrefElement']
   const until: typeof import('@vueuse/core')['until']
-    const use: typeof import('./stores/user')['use']
+  const use: typeof import('./stores/user')['use']
   const useActiveElement: typeof import('@vueuse/core')['useActiveElement']
   const useArrayEvery: typeof import('@vueuse/core')['useArrayEvery']
   const useArrayFilter: typeof import('@vueuse/core')['useArrayFilter']
@@ -150,7 +152,7 @@ declare global {
   const useBroadcastChannel: typeof import('@vueuse/core')['useBroadcastChannel']
   const useBrowserLocation: typeof import('@vueuse/core')['useBrowserLocation']
   const useCached: typeof import('@vueuse/core')['useCached']
-    const useCartStore: typeof import('./stores/cart')['useCartStore']
+  const useCartStore: typeof import('./stores/cart')['useCartStore']
   const useCategoryStore: typeof import('./stores/category')['useCategoryStore']
   const useClipboard: typeof import('@vueuse/core')['useClipboard']
   const useCloned: typeof import('@vueuse/core')['useCloned']
@@ -274,7 +276,7 @@ declare global {
   const useTransition: typeof import('@vueuse/core')['useTransition']
   const useUrlSearchParams: typeof import('@vueuse/core')['useUrlSearchParams']
   const useUserMedia: typeof import('@vueuse/core')['useUserMedia']
-    const useUserStore: typeof import('./stores/user')['useUserStore']
+  const useUserStore: typeof import('./stores/user')['useUserStore']
   const useVModel: typeof import('@vueuse/core')['useVModel']
   const useVModels: typeof import('@vueuse/core')['useVModels']
   const useVibrate: typeof import('@vueuse/core')['useVibrate']
@@ -311,8 +313,8 @@ declare global {
 // for vue template auto import
 import {UnwrapRef} from 'vue'
 declare module 'vue' {
-    interface GlobalComponents {
-    }
+  interface GlobalComponents {
+  }
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
@@ -345,6 +347,7 @@ declare module 'vue' {
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
     readonly getBannerAPI: UnwrapRef<typeof import('./api/home')['getBannerAPI']>
+    readonly getCartAPI: UnwrapRef<typeof import('./api/cart')['getCartAPI']>
     readonly getCategoryAPI: UnwrapRef<typeof import('./api/layout')['getCategoryAPI']>
     readonly getCategoryFilterAPI: UnwrapRef<typeof import('./api/sub-category')['getCategoryFilterAPI']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
@@ -359,12 +362,13 @@ declare module 'vue' {
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
+    readonly insertCartAPI: UnwrapRef<typeof import('./api/cart')['insertCartAPI']>
     readonly isDefined: UnwrapRef<typeof import('@vueuse/core')['isDefined']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
-      readonly loginAPI: UnwrapRef<typeof import('./api/user')['loginAPI']>
+    readonly loginAPI: UnwrapRef<typeof import('./api/user')['loginAPI']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly mapActions: UnwrapRef<typeof import('pinia')['mapActions']>
     readonly mapGetters: UnwrapRef<typeof import('pinia')['mapGetters']>
@@ -456,7 +460,7 @@ declare module 'vue' {
     readonly useBroadcastChannel: UnwrapRef<typeof import('@vueuse/core')['useBroadcastChannel']>
     readonly useBrowserLocation: UnwrapRef<typeof import('@vueuse/core')['useBrowserLocation']>
     readonly useCached: UnwrapRef<typeof import('@vueuse/core')['useCached']>
-      readonly useCartStore: UnwrapRef<typeof import('./stores/cart')['useCartStore']>
+    readonly useCartStore: UnwrapRef<typeof import('./stores/cart')['useCartStore']>
     readonly useCategoryStore: UnwrapRef<typeof import('./stores/category')['useCategoryStore']>
     readonly useClipboard: UnwrapRef<typeof import('@vueuse/core')['useClipboard']>
     readonly useCloned: UnwrapRef<typeof import('@vueuse/core')['useCloned']>
@@ -580,7 +584,7 @@ declare module 'vue' {
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>
     readonly useUserMedia: UnwrapRef<typeof import('@vueuse/core')['useUserMedia']>
-      readonly useUserStore: UnwrapRef<typeof import('./stores/user')['useUserStore']>
+    readonly useUserStore: UnwrapRef<typeof import('./stores/user')['useUserStore']>
     readonly useVModel: UnwrapRef<typeof import('@vueuse/core')['useVModel']>
     readonly useVModels: UnwrapRef<typeof import('@vueuse/core')['useVModels']>
     readonly useVibrate: UnwrapRef<typeof import('@vueuse/core')['useVibrate']>
@@ -610,8 +614,8 @@ declare module 'vue' {
   }
 }
 declare module '@vue/runtime-core' {
-    interface GlobalComponents {
-    }
+  interface GlobalComponents {
+  }
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
@@ -644,6 +648,7 @@ declare module '@vue/runtime-core' {
     readonly extendRef: UnwrapRef<typeof import('@vueuse/core')['extendRef']>
     readonly getActivePinia: UnwrapRef<typeof import('pinia')['getActivePinia']>
     readonly getBannerAPI: UnwrapRef<typeof import('./api/home')['getBannerAPI']>
+    readonly getCartAPI: UnwrapRef<typeof import('./api/cart')['getCartAPI']>
     readonly getCategoryAPI: UnwrapRef<typeof import('./api/layout')['getCategoryAPI']>
     readonly getCategoryFilterAPI: UnwrapRef<typeof import('./api/sub-category')['getCategoryFilterAPI']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
@@ -658,12 +663,13 @@ declare module '@vue/runtime-core' {
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
+    readonly insertCartAPI: UnwrapRef<typeof import('./api/cart')['insertCartAPI']>
     readonly isDefined: UnwrapRef<typeof import('@vueuse/core')['isDefined']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
     readonly isReadonly: UnwrapRef<typeof import('vue')['isReadonly']>
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
-      readonly loginAPI: UnwrapRef<typeof import('./api/user')['loginAPI']>
+    readonly loginAPI: UnwrapRef<typeof import('./api/user')['loginAPI']>
     readonly makeDestructurable: UnwrapRef<typeof import('@vueuse/core')['makeDestructurable']>
     readonly mapActions: UnwrapRef<typeof import('pinia')['mapActions']>
     readonly mapGetters: UnwrapRef<typeof import('pinia')['mapGetters']>
@@ -755,7 +761,7 @@ declare module '@vue/runtime-core' {
     readonly useBroadcastChannel: UnwrapRef<typeof import('@vueuse/core')['useBroadcastChannel']>
     readonly useBrowserLocation: UnwrapRef<typeof import('@vueuse/core')['useBrowserLocation']>
     readonly useCached: UnwrapRef<typeof import('@vueuse/core')['useCached']>
-      readonly useCartStore: UnwrapRef<typeof import('./stores/cart')['useCartStore']>
+    readonly useCartStore: UnwrapRef<typeof import('./stores/cart')['useCartStore']>
     readonly useCategoryStore: UnwrapRef<typeof import('./stores/category')['useCategoryStore']>
     readonly useClipboard: UnwrapRef<typeof import('@vueuse/core')['useClipboard']>
     readonly useCloned: UnwrapRef<typeof import('@vueuse/core')['useCloned']>
@@ -879,7 +885,7 @@ declare module '@vue/runtime-core' {
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>
     readonly useUserMedia: UnwrapRef<typeof import('@vueuse/core')['useUserMedia']>
-      readonly useUserStore: UnwrapRef<typeof import('./stores/user')['useUserStore']>
+    readonly useUserStore: UnwrapRef<typeof import('./stores/user')['useUserStore']>
     readonly useVModel: UnwrapRef<typeof import('@vueuse/core')['useVModel']>
     readonly useVModels: UnwrapRef<typeof import('@vueuse/core')['useVModels']>
     readonly useVibrate: UnwrapRef<typeof import('@vueuse/core')['useVibrate']>
