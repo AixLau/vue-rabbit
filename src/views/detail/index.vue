@@ -1,14 +1,31 @@
 <script setup lang="ts">
+import {ElMessage} from "element-plus";
+import 'element-plus/theme-chalk/el-message.css'
 const goods = ref([])
 const route = useRoute()
 const getGoods = async () => {
   const res = await getDetail(route.params.id)
   goods.value = res.result
 }
+let skuInfo = {}
 const skuChange = (sku) => {
-  console.log(sku)
+  skuInfo = sku
 }
 getGoods()
+
+const num = ref(1)
+const handleChange = (value: number) => {
+  num.value++
+}
+const cartStore = useCartStore()
+const addCart = () => {
+
+  if (skuInfo.skuId) {
+    cartStore.addCart({...goods.value, skuId: skuInfo.skuId, count: num.value})
+  } else {
+    ElMessage.warning('请选择商品规格')
+  }
+}
 </script>
 
 <template>
@@ -81,10 +98,10 @@ getGoods()
               <!-- sku组件 -->
               <XtxSku :goods="goods" @change="skuChange"/>
               <!-- 数据组件 -->
-
+              <el-input-number v-model="num" :min="1" :max="10" @change="handleChange"/>
               <!-- 按钮组件 -->
               <div>
-                <el-button size="large" class="btn">
+                <el-button @click="addCart" size="large" class="btn">
                   加入购物车
                 </el-button>
               </div>

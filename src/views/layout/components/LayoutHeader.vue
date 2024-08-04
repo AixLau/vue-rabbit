@@ -19,7 +19,7 @@ const categoryStorm = useCategoryStore();
         <input type="text" placeholder="搜一搜">
       </div>
       <!-- 头部购物车 -->
-
+      <LayoutCart/>
     </div>
   </header>
 </template>
