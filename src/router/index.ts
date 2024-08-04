@@ -10,6 +10,7 @@ const routes = [
             {path: 'category/sub/:id', component: () => import('@/views/sub-category/index.vue')},
             {path: 'detail/:id', component: () => import('@/views/detail/index.vue')},
             {path: '/cartlist', component: () => import('@/views/cart/index.vue'),},
+            {path: 'checkout', component: () => import('@/views/checkout/index.vue')}
         ]
     },
     {

@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Cart: typeof import('./views/cart/index.vue')['default']
     Category: typeof import('./views/category/index.vue')['default']
+    Checkout: typeof import('./views/checkout/index.vue')['default']
     Detail: typeof import('./views/detail/index.vue')['default']
     DetailHot: typeof import('./views/detail/components/DetailHot.vue')['default']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
