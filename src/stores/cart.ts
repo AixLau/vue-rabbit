@@ -1,3 +1,5 @@
+import {delCartAPI} from "@/api/cart.ts";
+
 export const useCartStore = defineStore('cart', () => {
     const cartList = ref([]);
     const userStore = useUserStore()
@@ -11,7 +13,7 @@ export const useCartStore = defineStore('cart', () => {
         const {skuId, count} = goods;
         if (isLogin.value) {
             await insertCartAPI({skuId, count});
-            getCart()
+            await getCart()
         } else {
             const item = cartList.value.find((item) => item.skuId === goods.skuId);
             if (item) {
@@ -25,8 +27,13 @@ export const useCartStore = defineStore('cart', () => {
     };
 
 
-    const delCart = (skuId) => {
-        cartList.value = cartList.value.filter((item) => item.skuId != skuId)
+    const delCart = async (skuId) => {
+        if (isLogin.value) {
+            await delCartAPI([skuId])
+            await getCart()
+        } else {
+            cartList.value = cartList.value.filter((item) => item.skuId != skuId)
+        }
     }
 
     const selectAll = computed({
