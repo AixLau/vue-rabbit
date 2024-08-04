@@ -11,7 +11,7 @@ const cartList = cartStore.cartList
           <thead>
           <tr>
             <th width="120">
-              <el-checkbox/>
+              <el-checkbox v-model="cartStore.selectAll"/>
             </th>
             <th width="400">商品信息</th>
             <th width="220">单价</th>
@@ -24,7 +24,7 @@ const cartList = cartStore.cartList
           <tbody>
           <tr v-for="i in cartList" :key="i.id">
             <td>
-              <el-checkbox/>
+              <el-checkbox v-model="i.selected"/>
             </td>
             <td>
               <div class="goods">
@@ -40,7 +40,7 @@ const cartList = cartStore.cartList
               <p>&yen;{{ i.price }}</p>
             </td>
             <td class="tc">
-              <el-input-number v-model="i.count"/>
+              <el-input-number v-model="i.count" :min="1"/>
             </td>
             <td class="tc">
               <p class="f16 red">&yen;{{ (i.price * i.count).toFixed(2) }}</p>
@@ -48,7 +48,7 @@ const cartList = cartStore.cartList
             <td class="tc">
               <p>
                 <el-popconfirm title="确认删除吗?" confirm-button-text="确认" cancel-button-text="取消"
-                               @confirm="delCart(i)">
+                               @confirm="cartStore.delCart(i.skuId)">
                   <template #reference>
                     <a href="javascript:;">删除</a>
                   </template>
@@ -72,8 +72,8 @@ const cartList = cartStore.cartList
       <!-- 操作栏 -->
       <div class="action">
         <div class="batch">
-          共 {{ cartList.length }} 件商品，已选择 2 件，商品合计：
-          <span class="red">¥ {{ cartStore.totalPrice }} </span>
+          共 {{ cartList.length }} 件商品，已选择 {{ cartStore.selectedQuantity }} 件，商品合计：
+          <span class="red">¥ {{ cartStore.selectedPrice }} </span>
         </div>
         <div class="total">
           <el-button size="large" type="primary">下单结算</el-button>
