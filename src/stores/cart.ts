@@ -1,5 +1,3 @@
-import {delCartAPI} from "@/api/cart.ts";
-
 export const useCartStore = defineStore('cart', () => {
     const cartList = ref([]);
     const userStore = useUserStore()
@@ -18,9 +16,9 @@ export const useCartStore = defineStore('cart', () => {
         } else {
             const item = cartList.value.find((item) => item.skuId === goods.skuId);
             if (item) {
-                item.picture = item.mainPictures[0]
                 item.count += goods.count;
             } else {
+                goods.picture = goods.mainPictures[0]
                 goods.selected = false;
                 cartList.value.push(goods);
             }
@@ -29,6 +27,11 @@ export const useCartStore = defineStore('cart', () => {
 
     const clearCart = () => {
         cartList.value = []
+    }
+
+    const memberCart = async (data) => {
+        await memberCartAPI(data)
+        await getCart()
     }
 
     const delCart = async (skuId) => {
@@ -77,6 +80,7 @@ export const useCartStore = defineStore('cart', () => {
         getCart,
         addCart,
         clearCart,
+        memberCart,
         delCart
     };
 }, {persist: true});

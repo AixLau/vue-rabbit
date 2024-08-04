@@ -3,7 +3,14 @@ export const useUserStore = defineStore('user', () => {
     const cartStore = useCartStore()
     const getUserInfo = async ({account, password}) => {
         const res = await loginAPI({account, password})
-        userInfo.value = res.result;
+        userInfo.value = res.result
+        await cartStore.memberCart(cartStore.cartList.map((item) => {
+            return {
+                skuId: item.skuId,
+                selected: item.selected,
+                count: item.count
+            }
+        }))
     }
 
     const clearUserInfo = () => {

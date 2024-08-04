@@ -26,3 +26,11 @@ export const delCartAPI = (ids) => {
         }
     })
 }
+
+export const memberCartAPI = (data) => {
+    return httpInstance({
+        url: '/member/cart/merge',
+        method: 'POST',
+        data
+    })
+}

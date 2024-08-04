@@ -26,7 +26,6 @@ const doLogin = () => {
     if (valid) {
       await userStore.getUserInfo({account, password})
       ElMessage({type: 'success', message: '登录成功'})
-      await cartStore.getCart()
       await router.replace({path: '/'})
     }
 
