@@ -12,13 +12,22 @@ const routes = [
             {path: 'cartlist', component: () => import('@/views/cart/index.vue'),},
             {path: 'checkout', component: () => import('@/views/checkout/index.vue')},
             {path: 'pay', component: () => import('@/views/pay/index.vue')},
-            {path: 'paycallback', component: () => import('@/views/pay/PayBack.vue')}
+            {path: 'paycallback', component: () => import('@/views/pay/PayBack.vue')},
+            {
+                path: '/member',
+                component: () => import('@/views/member/index.vue'),
+                children: [
+                    {path: 'user', component: () => import('@/views/member/components/UserInfo.vue')},
+                    {path: 'order', component: () => import('@/views/member/components/UserOrder.vue')}
+                ]
+            }
         ]
     },
     {
         path: '/login',
         component: () => import('@/views/login/index.vue'),
     },
+
 
 ];
 
