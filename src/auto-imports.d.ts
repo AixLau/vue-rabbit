@@ -21,7 +21,7 @@ declare global {
   const createEventHook: typeof import('@vueuse/core')['createEventHook']
   const createGlobalState: typeof import('@vueuse/core')['createGlobalState']
   const createInjectionState: typeof import('@vueuse/core')['createInjectionState']
-    const createOrderAPI: typeof import('./api/checkout')['createOrderAPI']
+  const createOrderAPI: typeof import('./api/checkout')['createOrderAPI']
   const createPinia: typeof import('pinia')['createPinia']
   const createReactiveFn: typeof import('@vueuse/core')['createReactiveFn']
   const createSharedComposable: typeof import('@vueuse/core')['createSharedComposable']
@@ -50,6 +50,7 @@ declare global {
   const getHotAPI: typeof import('./api/home')['getHotAPI']
   const getHotGoodsAPI: typeof import('./api/detail')['getHotGoodsAPI']
   const getNewProductAPI: typeof import('./api/home')['getNewProductAPI']
+  const getOrderAPI: typeof import('./api/pay')['getOrderAPI']
   const getSubCategoryAPI: typeof import('./api/sub-category')['getSubCategoryAPI']
   const getToCategoryAPI: typeof import('./api/category')['getToCategoryAPI']
   const getTopCategoryAPI: typeof import('./api/category')['getTopCategoryAPI']
@@ -162,6 +163,7 @@ declare global {
   const useCloned: typeof import('@vueuse/core')['useCloned']
   const useColorMode: typeof import('@vueuse/core')['useColorMode']
   const useConfirmDialog: typeof import('@vueuse/core')['useConfirmDialog']
+  const useCountDown: typeof import('./stores/useCountDown')['useCountDown']
   const useCounter: typeof import('@vueuse/core')['useCounter']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVar: typeof import('@vueuse/core')['useCssVar']
@@ -317,8 +319,8 @@ declare global {
 // for vue template auto import
 import {UnwrapRef} from 'vue'
 declare module 'vue' {
-    interface GlobalComponents {
-    }
+  interface GlobalComponents {
+  }
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
@@ -336,7 +338,7 @@ declare module 'vue' {
     readonly createEventHook: UnwrapRef<typeof import('@vueuse/core')['createEventHook']>
     readonly createGlobalState: UnwrapRef<typeof import('@vueuse/core')['createGlobalState']>
     readonly createInjectionState: UnwrapRef<typeof import('@vueuse/core')['createInjectionState']>
-      readonly createOrderAPI: UnwrapRef<typeof import('./api/checkout')['createOrderAPI']>
+    readonly createOrderAPI: UnwrapRef<typeof import('./api/checkout')['createOrderAPI']>
     readonly createPinia: UnwrapRef<typeof import('pinia')['createPinia']>
     readonly createReactiveFn: UnwrapRef<typeof import('@vueuse/core')['createReactiveFn']>
     readonly createSharedComposable: UnwrapRef<typeof import('@vueuse/core')['createSharedComposable']>
@@ -364,6 +366,7 @@ declare module 'vue' {
     readonly getHotAPI: UnwrapRef<typeof import('./api/home')['getHotAPI']>
     readonly getHotGoodsAPI: UnwrapRef<typeof import('./api/detail')['getHotGoodsAPI']>
     readonly getNewProductAPI: UnwrapRef<typeof import('./api/home')['getNewProductAPI']>
+    readonly getOrderAPI: UnwrapRef<typeof import('./api/pay')['getOrderAPI']>
     readonly getSubCategoryAPI: UnwrapRef<typeof import('./api/sub-category')['getSubCategoryAPI']>
     readonly getTopCategoryAPI: UnwrapRef<typeof import('./api/category')['getTopCategoryAPI']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
@@ -474,6 +477,7 @@ declare module 'vue' {
     readonly useCloned: UnwrapRef<typeof import('@vueuse/core')['useCloned']>
     readonly useColorMode: UnwrapRef<typeof import('@vueuse/core')['useColorMode']>
     readonly useConfirmDialog: UnwrapRef<typeof import('@vueuse/core')['useConfirmDialog']>
+    readonly useCountDown: UnwrapRef<typeof import('./stores/useCountDown')['useCountDown']>
     readonly useCounter: UnwrapRef<typeof import('@vueuse/core')['useCounter']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVar: UnwrapRef<typeof import('@vueuse/core')['useCssVar']>
@@ -622,8 +626,8 @@ declare module 'vue' {
   }
 }
 declare module '@vue/runtime-core' {
-    interface GlobalComponents {
-    }
+  interface GlobalComponents {
+  }
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
@@ -641,7 +645,7 @@ declare module '@vue/runtime-core' {
     readonly createEventHook: UnwrapRef<typeof import('@vueuse/core')['createEventHook']>
     readonly createGlobalState: UnwrapRef<typeof import('@vueuse/core')['createGlobalState']>
     readonly createInjectionState: UnwrapRef<typeof import('@vueuse/core')['createInjectionState']>
-      readonly createOrderAPI: UnwrapRef<typeof import('./api/checkout')['createOrderAPI']>
+    readonly createOrderAPI: UnwrapRef<typeof import('./api/checkout')['createOrderAPI']>
     readonly createPinia: UnwrapRef<typeof import('pinia')['createPinia']>
     readonly createReactiveFn: UnwrapRef<typeof import('@vueuse/core')['createReactiveFn']>
     readonly createSharedComposable: UnwrapRef<typeof import('@vueuse/core')['createSharedComposable']>
@@ -669,6 +673,7 @@ declare module '@vue/runtime-core' {
     readonly getHotAPI: UnwrapRef<typeof import('./api/home')['getHotAPI']>
     readonly getHotGoodsAPI: UnwrapRef<typeof import('./api/detail')['getHotGoodsAPI']>
     readonly getNewProductAPI: UnwrapRef<typeof import('./api/home')['getNewProductAPI']>
+    readonly getOrderAPI: UnwrapRef<typeof import('./api/pay')['getOrderAPI']>
     readonly getSubCategoryAPI: UnwrapRef<typeof import('./api/sub-category')['getSubCategoryAPI']>
     readonly getTopCategoryAPI: UnwrapRef<typeof import('./api/category')['getTopCategoryAPI']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
@@ -779,6 +784,7 @@ declare module '@vue/runtime-core' {
     readonly useCloned: UnwrapRef<typeof import('@vueuse/core')['useCloned']>
     readonly useColorMode: UnwrapRef<typeof import('@vueuse/core')['useColorMode']>
     readonly useConfirmDialog: UnwrapRef<typeof import('@vueuse/core')['useConfirmDialog']>
+    readonly useCountDown: UnwrapRef<typeof import('./stores/useCountDown')['useCountDown']>
     readonly useCounter: UnwrapRef<typeof import('@vueuse/core')['useCounter']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVar: UnwrapRef<typeof import('@vueuse/core')['useCssVar']>

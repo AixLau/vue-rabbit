@@ -44,6 +44,7 @@ declare module 'vue' {
     LayoutNav: typeof import('./views/layout/components/LayoutNav.vue')['default']
     Login: typeof import('./views/login/index.vue')['default']
       Pay: typeof import('./views/pay/index.vue')['default']
+      PayBack: typeof import('./views/pay/PayBack.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SubCategory: typeof import('./views/sub-category/index.vue')['default']
