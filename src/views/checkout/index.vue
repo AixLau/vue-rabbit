@@ -15,7 +15,32 @@ const activeAddress = (address) => {
 const changeAddress = () => {
   curAddress.value = selectedAddress.value
   showDialog.value = false
-  console.log(curAddress.value)
+  selectedAddress.value = {}
+}
+const router = useRouter()
+const cartStore = useCartStore()
+const createOrder = async () => {
+  const res = await createOrderAPI({
+    deliveryTimeType: 1,
+    payType: 1,
+    payChannel: 1,
+    buyerMessage: '',
+    goods: checkInfo.value.goods.map(item => {
+      return {
+        skuId: item.skuId,
+        count: item.count
+      }
+    }),
+    addressId: curAddress.value.id
+  })
+  const orderId = res.result.id
+  await router.push({
+    path: '/pay',
+    query: {
+      id: orderId
+    }
+  })
+  await cartStore.getCart()
 }
 </script>
 
@@ -111,7 +136,7 @@ const changeAddress = () => {
         </div>
         <!-- 提交订单 -->
         <div class="submit">
-          <el-button type="primary" size="large">提交订单</el-button>
+          <el-button @click="createOrder" type="primary" size="large">提交订单</el-button>
         </div>
       </div>
     </div>
