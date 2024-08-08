@@ -10,15 +10,48 @@ const tabTypes = [
   {name: "cancel", label: "已取消"}
 ]
 // 订单列表
-const orderList = []
+const orderList = ref([])
+const params = ref({
+  orderState: 0,
+  page: 1,
+  pageSize: 2
+})
+const getOrderList = async () => {
+  const res = await getUserOrder(params.value)
+  orderList.value = res.result.items
+  total.value = res.result.counts
+}
+// 补充总条数
+const total = ref(0)
+// 页数切换
+const pageChange = (page) => {
+  params.value.page = page
+  getOrderList()
+}
 
+const tabChange = (type) => {
+  params.value.orderState = type
+  getOrderList()
+}
+const fomartPayState = (payState) => {
+  const stateMap = {
+    1: '待付款',
+    2: '待发货',
+    3: '待收货',
+    4: '待评价',
+    5: '已完成',
+    6: '已取消'
+  }
+  return stateMap[payState]
+}
+onMounted(() => getOrderList())
 </script>
 
 <template>
   <div class="order-container">
     <el-tabs>
       <!-- tab切换 -->
-      <el-tab-pane v-for="item in tabTypes" :key="item.name" :label="item.label"/>
+      <el-tab-pane @tab-change="tabChange" v-for="item in tabTypes" :key="item.name" :label="item.label"/>
 
       <div class="main-container">
         <div class="holder-container" v-if="orderList.length === 0">
@@ -57,7 +90,7 @@ const orderList = []
                 </ul>
               </div>
               <div class="column state">
-                <p>{{ order.orderState }}</p>
+                <p>{{ fomartPayState(order.orderState) }}</p>
                 <p v-if="order.orderState === 3">
                   <a href="javascript:;" class="green">查看物流</a>
                 </p>
@@ -94,7 +127,12 @@ const orderList = []
           </div>
           <!-- 分页 -->
           <div class="pagination-container">
-            <el-pagination background layout="prev, pager, next"/>
+            <el-pagination
+                :total="total"
+                @current-change="pageChange"
+                :page-size="params.pageSize"
+                background
+                layout="prev, pager, next"/>
           </div>
         </div>
       </div>

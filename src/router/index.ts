@@ -17,7 +17,7 @@ const routes = [
                 path: '/member',
                 component: () => import('@/views/member/index.vue'),
                 children: [
-                    {path: 'user', component: () => import('@/views/member/components/UserInfo.vue')},
+                    {path: '', component: () => import('@/views/member/components/UserInfo.vue')},
                     {path: 'order', component: () => import('@/views/member/components/UserOrder.vue')}
                 ]
             }

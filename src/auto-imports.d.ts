@@ -55,6 +55,7 @@ declare global {
   const getSubCategoryAPI: typeof import('./api/sub-category')['getSubCategoryAPI']
   const getToCategoryAPI: typeof import('./api/category')['getToCategoryAPI']
   const getTopCategoryAPI: typeof import('./api/category')['getTopCategoryAPI']
+  const getUserOrder: typeof import('./api/user')['getUserOrder']
   const h: typeof import('vue')['h']
   const ignorableWatch: typeof import('@vueuse/core')['ignorableWatch']
   const inject: typeof import('vue')['inject']
@@ -371,6 +372,7 @@ declare module 'vue' {
     readonly getOrderAPI: UnwrapRef<typeof import('./api/pay')['getOrderAPI']>
     readonly getSubCategoryAPI: UnwrapRef<typeof import('./api/sub-category')['getSubCategoryAPI']>
     readonly getTopCategoryAPI: UnwrapRef<typeof import('./api/category')['getTopCategoryAPI']>
+    readonly getUserOrder: UnwrapRef<typeof import('./api/user')['getUserOrder']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -679,6 +681,7 @@ declare module '@vue/runtime-core' {
     readonly getOrderAPI: UnwrapRef<typeof import('./api/pay')['getOrderAPI']>
     readonly getSubCategoryAPI: UnwrapRef<typeof import('./api/sub-category')['getSubCategoryAPI']>
     readonly getTopCategoryAPI: UnwrapRef<typeof import('./api/category')['getTopCategoryAPI']>
+    readonly getUserOrder: UnwrapRef<typeof import('./api/user')['getUserOrder']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly ignorableWatch: UnwrapRef<typeof import('@vueuse/core')['ignorableWatch']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>

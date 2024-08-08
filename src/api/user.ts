@@ -16,3 +16,11 @@ export const getLikeListAPI = ({limit = 4}) => {
         }
     })
 }
+
+export const getUserOrder = (params) => {
+    return httpInstance({
+        url: '/member/order',
+        method: 'GET',
+        params
+    })
+}
